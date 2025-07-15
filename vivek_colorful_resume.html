@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek Kumar - Senior Data Scientist Resume</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #4facfe;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            border-radius: 2px;
+        }
+
+        .summary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #d63384;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background: rgba(214, 51, 132, 0.1);
+            color: #d63384;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid rgba(214, 51, 132, 0.3);
+        }
+
+        .experience-item {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, #4facfe, #00f2fe);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .company {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .date {
+            background: #4facfe;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .project-item {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .project-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .project-tech {
+            background: rgba(231, 76, 60, 0.1);
+            color: #e74c3c;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .education-degree {
+            font-weight: bold;
+            color: #8e44ad;
+            font-size: 1.1em;
+        }
+
+        .education-school {
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .cert-item {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            color: #2c3e50;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .cert-item:hover {
+            transform: scale(1.05);
+        }
+
+        .awards {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(250, 112, 154, 0.3);
+        }
+
+        .award-item {
+            background: rgba(255,255,255,0.3);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .keywords {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            font-style: italic;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #4facfe;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>VIVEK KUMAR</h1>
+            <h2>Senior Data Scientist | Generative AI Specialist</h2>
+            <div class="contact-info">
+                <a href="mailto:vickeytomer@gmail.com">📧 vickeytomer@gmail.com</a>
+                <a href="tel:+919997128298">📱 +91-9997128298</a>
+                <a href="https://www.linkedin.com/in/vickeytomer" target="_blank">💼 LinkedIn</a>
+                <a href="https://github.com/vickeytomer007" target="_blank">🐙 GitHub</a>
+                <a href="https://www.kaggle.com/vickeytomer" target="_blank">🏆 Kaggle</a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="section">
+                <div class="summary">
+                    <h2 style="margin-bottom: 15px; color: #ffecd2;">🚀 PROFESSIONAL SUMMARY</h2>
+                    <p>Results-driven Senior Data Scientist with <strong>7+ years of expertise</strong> in Generative AI, Machine Learning, and MLOps. Proven track record of delivering high-impact AI solutions that drive operational efficiency and cost reduction. Specialized in Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), and multi-agent architectures. Successfully led cross-functional teams to deploy scalable AI systems across telecommunications and analytics domains.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">💡 CORE COMPETENCIES</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>🖥️ Programming & Development</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python (Advanced)</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Statistical Modeling</span>
+                            <span class="skill-tag">MLOps</span>
+                            <span class="skill-tag">MLflow</span>
+                            <span class="skill-tag">DVC</span>
+                            <span class="skill-tag">CI/CD</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Git</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>🤖 Generative AI & ML</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Large Language Models</span>
+                            <span class="skill-tag">RAG</span>
+                            <span class="skill-tag">LangChain</span>
+                            <span class="skill-tag">LlamaIndex</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">Keras</span>
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">XGBoost</span>
+                            <span class="skill-tag">NLP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>🔧 Agentic Frameworks</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">LangChain Agents</span>
+                            <span class="skill-tag">Crew.AI</span>
+                            <span class="skill-tag">AutoGen</span>
+                            <span class="skill-tag">OpenAI Function Calling</span>
+                            <span class="skill-tag">Multi-Agent Architecture</span>
+                            <span class="skill-tag">Task Decomposition</span>
+                            <span class="skill-tag">Memory Management</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>☁️ Cloud & Visualization</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Azure</span>
+                            <span class="skill-tag">GCP</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Power BI</span>
+                            <span class="skill-tag">Tableau</span>
+                            <span class="skill-tag">A/B Testing</span>
+                            <span class="skill-tag">Anomaly Detection</span>
+                            <span class="skill-tag">Predictive Modeling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">💼 PROFESSIONAL EXPERIENCE</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Senior Data Scientist</div>
+                            <div class="company">Fractal Analytics, Gurgaon</div>
+                        </div>
+                        <div class="date">Nov 2023 - Present</div>
+                    </div>
+                    <ul>
+                        <li><strong>Architected and deployed</strong> advanced predictive models using state-of-the-art machine learning algorithms, resulting in 25% improvement in model accuracy</li>
+                        <li><strong>Collaborated with cross-functional teams</strong> to streamline data processing workflows, reducing processing time by 40%</li>
+                        <li><strong>Delivered data-driven solutions</strong> that enhanced decision-making capabilities and operational efficiency across multiple client engagements</li>
+                        <li><strong>Mentored junior data scientists</strong> on best practices in ML model development and deployment</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Data Scientist</div>
+                            <div class="company">Ericsson, Noida</div>
+                        </div>
+                        <div class="date">Nov 2021 - Oct 2023</div>
+                    </div>
+                    <ul>
+                        <li><strong>Led AI model development initiatives</strong> to enhance customer experience and operational efficiency for telecommunications clients</li>
+                        <li><strong>Designed and executed A/B testing strategies</strong> that improved user experience metrics by 30%</li>
+                        <li><strong>Automated data classification workflows</strong> using NLP techniques, reducing manual effort by 60%</li>
+                        <li><strong>Created interactive dashboards</strong> and visualization tools for stakeholder reporting and decision support</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Data Scientist</div>
+                            <div class="company">Milliman, Gurgaon</div>
+                        </div>
+                        <div class="date">Apr 2020 - Oct 2021</div>
+                    </div>
+                    <ul>
+                        <li><strong>Performed comprehensive statistical analyses</strong> driving actionable insights and operational strategy improvements</li>
+                        <li><strong>Built interactive dashboards</strong> using Power BI and Tableau to support data-driven decision making</li>
+                        <li><strong>Developed predictive models</strong> for risk assessment and actuarial analysis in insurance domain</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="job-title">Software Engineer</div>
+                            <div class="company">Conduent, Gurgaon</div>
+                        </div>
+                        <div class="date">Sep 2018 - Mar 2020</div>
+                    </div>
+                    <ul>
+                        <li><strong>Utilized SQL and Python</strong> for large-scale data manipulation, analysis, and ETL pipeline development</li>
+                        <li><strong>Conducted statistical analyses</strong> that enhanced customer experience and operational metrics</li>
+                        <li><strong>Implemented data quality frameworks</strong> ensuring 99.5% data accuracy across processing pipelines</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">🎯 KEY PROJECTS & ACHIEVEMENTS</h2>
+                
+                <div class="project-item">
+                    <div class="project-title">1. Billing SLM: AI-Powered Customer Billing Solution | Verizon</div>
+                    <ul>
+                        <li><strong>Fine-tuned Phi-3.5-mini model</strong> using Supervised Fine-Tuning (SFT) to resolve customer billing queries from complex JSON data</li>
+                        <li><strong>Automated bill summary generation</strong> and structured data creation using BigQuery, improving processing efficiency by 50%</li>
+                        <li><strong>Standardized diverse billing formats</strong> for efficient LLM training and inference across multiple systems</li>
+                        <li><strong>Reduced context length by 50%</strong>, significantly improving response speed and model efficiency</li>
+                    </ul>
+                    <div class="project-tech"><strong>Impact:</strong> Achieved 85%+ accuracy on contextual billing Q&A, improved query response time, and reduced operational costs</div>
+                    <div class="project-tech"><strong>Technologies:</strong> Phi-3.5-mini, Gemini Flash, Python, GCP, JSON, SFT</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">2. Network Genie: Generative AI Platform for Field Engineers | Verizon</div>
+                    <ul>
+                        <li><strong>Developed a comprehensive AI platform</strong> for field engineers and executives to streamline information retrieval and enhance operational efficiency</li>
+                        <li><strong>Designed and implemented RAG system</strong> for generating contextually relevant responses to technical and executive queries</li>
+                        <li><strong>Built multiple specialized agents</strong> for different data sources, optimizing query routing and response accuracy</li>
+                        <li><strong>Reduced system latency by 30%</strong> through optimized retrieval processes and caching mechanisms</li>
+                    </ul>
+                    <div class="project-tech"><strong>Technologies:</strong> GPT-3.5-turbo, BAAI/bge-small-en-v1.5, Python, LangChain, FAISS</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">3. Reliability: Anomaly Detection for Sensor Data | C3 AI</div>
+                    <ul>
+                        <li><strong>Designed and implemented autoencoder models</strong> to accurately reconstruct sensor data addressing high-dimensional, noisy, and missing data challenges</li>
+                        <li><strong>Achieved 25% reduction in false positives</strong> compared to traditional anomaly detection methods</li>
+                        <li><strong>Enhanced sensor network reliability</strong> by reconstructing missing or corrupted sensor readings with 95% accuracy</li>
+                    </ul>
+                    <div class="project-tech"><strong>Technologies:</strong> TensorFlow, Keras, PySpark, Python</div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">4. Intelligent Field Work-Order Optimization | Ericsson</div>
+                    <ul>
+                        <li><strong>Developed predictive models</strong> to optimize operational costs by intelligently prioritizing relevant work orders</li>
+                        <li><strong>Leveraged advanced NLP techniques</strong> for analyzing unstructured text data, resulting in 35% cost savings</li>
+                        <li><strong>Improved operational efficiency</strong> by reducing work order volumes through data-driven prioritization strategies</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">🎓 EDUCATION</h2>
+                
+                <div class="education-item">
+                    <div class="education-degree">Master of Science (MSc) in Financial Engineering</div>
+                    <div class="education-school">WorldQuant University | Expected Apr 2027</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-degree">Post Graduate Diploma (PGDM) in Business Analytics</div>
+                    <div class="education-school">Alliance University, Bangalore | Completed Jan 2022</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-degree">Post Graduate Program (PGP) in Data Science</div>
+                    <div class="education-school">Springboard, Bangalore | Completed Nov 2020</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-degree">Bachelor of Technology (B.Tech) in Computer Science & Engineering</div>
+                    <div class="education-school">IMS Engineering College | Completed Jun 2017</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">📜 CERTIFICATIONS</h2>
+                <div class="certifications">
+                    <div class="cert-item">🎯 Machine Learning Advanced Level - Ericsson</div>
+                    <div class="cert-item">🤖 Building End-to-End Generative AI Applications - Analytics Vidhya</div>
+                    <div class="cert-item">🔧 Building Production-Ready RAG Systems Using LlamaIndex - Analytics Vidhya</div>
+                    <div class="cert-item">⚡ Machine Learning Experienced Level - Ericsson</div>
+                    <div class="cert-item">💡 Building LLM Applications Using Prompt Engineering - Analytics Vidhya</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">🏆 AWARDS & RECOGNITION</h2>
+                <div class="awards">
+                    <div class="award-item">🔬 Patent Granted: "Operation Prediction in Wireless Communication Network"</div>
+                    <div class="award-item">⭐ Star of the Month Award for outstanding contributions to AI/ML projects</div>
+                    <div class="award-item">🚀 Successfully led 15+ high-impact AI and machine learning projects across telecommunications and analytics domains</div>
+                    <div class="award-item">💼 Recognized for developing scalable and efficient data science solutions that drove business value</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="keywords">
+                    <h2 style="margin-bottom: 15px;">🔍 TECHNICAL KEYWORDS</h2>
+                    <p>Machine Learning • Artificial Intelligence • Deep Learning • Natural Language Processing • Large Language Models • Generative AI • RAG • LangChain • Python • SQL • TensorFlow • PyTorch • MLOps • Cloud Computing • Data Science • Predictive Analytics • Anomaly Detection • Statistical Modeling • A/B Testing • Data Visualization</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
